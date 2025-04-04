@@ -25,8 +25,14 @@ class _HomePageState extends State<HomePage> {
     
 
     return Scaffold(
-      body: currentPage==0? ProductList(): const CartPage(),
+      // body: currentPage==0? ProductList(): const CartPage(),
+      body:IndexedStack(   // Use IndexedStack to keep the state of the pages
+        index: currentPage,
+        children: pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedFontSize: 0,
+        unselectedFontSize: 0,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
